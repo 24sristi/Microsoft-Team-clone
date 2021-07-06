@@ -81,6 +81,15 @@ video{
     flex-grow: 1;
     overflow-y: scroll;
 }
+.main_chat_window::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.main_chat_window {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 .main_message_container{
      padding: 22px 12px;
@@ -97,4 +106,13 @@ video{
 .messages{
     color: white;
     list-style: none;
+}
+
+.unmute{
+    color:#cc3b33;
+}
+
+.stop{
+    color:#cc3b33;
+
 }

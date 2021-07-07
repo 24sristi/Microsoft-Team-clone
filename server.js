@@ -16,21 +16,27 @@ app.use('/peerjs', peerServer);
 
 
 app.get('/', (req, res) => {
+    res.render('HomePage')
+})
+app.get('/join', (req, res)=>{
     res.redirect(`/${uuidv4()}`);
 })
-
 app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room })
 })
 
 io.on('connection', Socket => {
-    Socket.on('join-room', (roomId, userId) => {
+    Socket.on('join-room', (roomId, userId,name) => {
         Socket.join(roomId);
-        Socket.broadcast.to(roomId).emit('user-connected', userId);
-        Socket.on('message', message => {
-            io.to(roomId).emit('createMessage',message)
+        Socket.broadcast.to(roomId).emit('user-connected', userId,name);
+        Socket.on('message', (message,name) => {
+            io.to(roomId).emit('createMessage',message,name)
         })
+        Socket.on('disconnect', () => {
+            Socket.to(roomId).emit('user-disconnected', userId,name)
+          })
     })
+    
 })
 
 server.listen(3030);

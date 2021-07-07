@@ -2,6 +2,9 @@ const socket = io('/');
 const videoGrid = document.getElementById('video-grid');
 const myVideo = document.createElement('video');
 myVideo.muted = true;
+let Chat_button = document.querySelector('.main_chat_button')
+let Chat_window = document.querySelector('.main_right')
+let Video_window = document.querySelector('.main_left')
 
 const peer = new Peer(undefined, {
   path: '/peerjs',
@@ -27,16 +30,22 @@ navigator.mediaDevices.getUserMedia({
   }, err => { console.log(err); })
 
 
-  socket.on('user-connected', (userId) => {
+  socket.on('user-connected', (userId,userName) => {
     setTimeout(() => {
       //user joined
       connectToNewUser(userId, stream);
     }, 1000)
+    $('.messages').append(`<li class="message">${userName} joined the meeting</li>`);
   })
 });
 
+socket.on('user-disconnected', (userId,userName) => {
+  if (peer[userId]) peer[userId].close()
+  $('.messages').append(`<li class="message">${userName} left the meeting</li>`);
+})
+
 peer.on('open', id => {
-  socket.emit('join-room', ROOM_ID, id);
+  socket.emit('join-room', ROOM_ID, id,name);
 })
 
 const connectToNewUser = (userId, stream) => {
@@ -45,6 +54,10 @@ const connectToNewUser = (userId, stream) => {
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
+  call.on('close', () => {
+    video.remove()
+  })
+  peer[userId] = call
 }
 
 
@@ -61,13 +74,13 @@ let msg = $('input')
 $('html').keydown((e) =>{
   if (e.which == 13 && msg.val().length !== 0) {
     console.log(msg.val())
-    socket.emit('message', msg.val());
+    socket.emit('message', msg.val(),name);
     msg.val('')
   }
 })
 
-socket.on('createMessage',message => {
-  $('.messages').append(`<li class="message"><b>user</b><br/>${message}</li>`);
+socket.on('createMessage',(message,userName) => {
+  $('.messages').append(`<li class="message"><b>${userName}</b><br/>${message}</li>`);
   scrollbottom()
 })
 
@@ -132,3 +145,17 @@ const setPlayVideo = () => {
   document.querySelector('.main_video_button').innerHTML = html;
 }
 
+Chat_button.addEventListener("click",function(){
+  if(Chat_window.classList.contains("selected"))
+  {
+    Chat_window.classList.remove("selected")
+    Chat_window.style.display="none"
+    Video_window.style.flex = "1"
+  }
+  else
+  {
+    Chat_window.classList.add("selected")
+    Chat_window.style.display="flex"
+    Video_window.style.flex = "0.8"
+  }
+})

@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+ 
+.container{
+    background-image: url(milo3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.content{
+    color: white;
+    margin-left: 13%;
+    /* margin-top: 80px; */
+    max-width: 45%;
+    }
+    .content h1{
+    font-size: 55px;
+    font-weight: 600;
+    }
+    .content h3{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    }
+    .buttons{
+    display: flex;
+    justify-content: space-evenly;
+    
+    }
+    .JOIN{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        width: 160px;
+    height: 60px;
+        border-radius: 30px 30px 30px 0;
+        transition: 1s;
+        cursor: pointer;
+        font-weight: 600;
+        color: white;
+        background-color:#4bb0c7 ;
+        }
+        .NEW{
+        display: flex;
+        background: #3d3d42;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        width: 160px;
+    height: 60px;
+        border-radius: 30px 30px 0 30px;
+        transition: 1s;
+        cursor: pointer;
+        font-weight: 600;
+        }
+        .loginP:hover,.loginD:hover{
+        transform: scale(1.1);
+        }
+    

@@ -1,9 +1,28 @@
 body {
     margin: 0;
 }
+a{
+    text-decoration: none !important;
+    color: white !important;
+}
 #video-grid{
+    position: absolute;
+    right: 10px;
+    height: 95%;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffffff7a;
+    border-radius: 30px;
+    border: 2px solid grey;
+    backdrop-filter: blur(15px);
+    padding: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+}
+#video-grid{
+    border-radius: 10px;
+    border: 3px solid white;
 }
 video{
     height: 150px;
@@ -29,13 +48,18 @@ video{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    height: 100%;
 }
 .main_controls{
     display: flex;
     justify-content: space-between;
     padding: 5px;
+    width: 61%;
+    position: absolute;
     color: white;
-    background: #1c1e20;
+    height: 10vh;
+    bottom: 0px;
 }
 .main_controls_block{
     display: flex;
@@ -47,9 +71,14 @@ video{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 2%;
     padding: 8px 10px;
     cursor: pointer;
     min-width: 80px;
+    background-color: #ffffff7a;
+    backdrop-filter: blur(15px);
+    backdrop-filter: opacity(0.5);
+    border-radius: 5px;
 }
 
 .main_controls_button:hover{
@@ -115,4 +144,9 @@ video{
 .stop{
     color:#cc3b33;
 
+}
+.main_screen_video,
+.main_screen_video video{
+    width: 100%;
+    height: 100%;
 }

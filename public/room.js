@@ -20,29 +20,29 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
-    myVideoStream = stream;
-    main_screen_video.srcObject = stream;
-    main_screen_video.addEventListener('loadedmetadata', () => {
+  myVideoStream = stream;
+  main_screen_video.srcObject = stream;
+  main_screen_video.addEventListener('loadedmetadata', () => {
     main_screen_video.play();
   })
   addVideoStream(myVideo, stream);
-  myVideo.addEventListener("click",function(){
+  myVideo.addEventListener("click", function () {
     main_screen_video.srcObject = stream;
-  
-})
+
+  })
 
   peer.on('call', call => {
     call.answer(stream)
     const video = document.createElement('video')
     video.classList.add("otherVideo")
-    
+
     call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream);
-      video.addEventListener("click",function(){
-          main_screen_video.srcObject = userVideoStream;
-        
+      video.addEventListener("click", function () {
+        main_screen_video.srcObject = userVideoStream;
+
       })
-      
+
     });
   }, err => { console.log(err); })
 
@@ -52,13 +52,13 @@ navigator.mediaDevices.getUserMedia({
       //user joined
       connectToNewUser(userId, stream);
     }, 1000)
-    $('.messages').append(`<li class="message">${userName} joined the meeting</li>`);
+    $('.messages').append(`<li class="message notice-msg">${userName} joined the meeting</li>`);
   })
 });
 
 socket.on('user-disconnected', (userId, userName) => {
   if (peer[userId]) peer[userId].close()
-  $('.messages').append(`<li class="message">${userName} left the meeting</li>`);
+  $('.messages').append(`<li class="message notice-msg">${userName} left the meeting</li>`);
 })
 
 peer.on('open', id => {
@@ -69,7 +69,7 @@ const connectToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream)
 
   const video = document.createElement('video')
-  
+
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
   })
@@ -99,9 +99,16 @@ $('html').keydown((e) => {
 })
 
 socket.on('createMessage', (message, userName) => {
-  $('.messages').append(`<li class="message"><b>${userName}</b><br/>${message}</li>`);
+  let otherClsss = userName!=name?"other-msg":"my-msg"
+  let chatClsss = userName!=name?"other-chat-msg":"my-chat-msg"
+  $('.messages').append(`<div class="msg ${otherClsss}">
+  <div class="msg-name">${userName}</div>
+  <div class="msg-msg ${chatClsss}">${message}</div>
+</div>`);
   scrollbottom()
 })
+
+
 
 const scrollbottom = () => {
   let d = $('.main_chat_window');
@@ -165,12 +172,12 @@ Chat_button.addEventListener("click", function () {
     Chat_window.classList.remove("selected")
     Chat_window.style.display = "none"
     Video_window.style.flex = "1"
-    main_controls.style.width ="83%"
+    main_controls.style.width = "83%"
   }
   else {
     Chat_window.classList.add("selected")
     Chat_window.style.display = "flex"
     Video_window.style.flex = "0.8"
-    main_controls.style.width ="65%"
+    main_controls.style.width = "65%"
   }
 })

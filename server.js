@@ -39,4 +39,4 @@ io.on('connection', Socket => {
     
 })
 
-server.listen(3030);
+.listen(process.env.PORT || 3030)

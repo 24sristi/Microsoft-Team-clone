@@ -8,6 +8,8 @@ let Video_window = document.querySelector('.main_left')
 let main_screen_video = document.querySelector('.main_screen_video video');
 let main_controls = document.querySelector('.main_controls')
 let inviteButton = document.querySelector('.invite_btn')
+let shareScreen = document.querySelector('.main_shareScreen_button')
+
 const peer = new Peer(undefined, {
   path: '/peerjs',
   host: 'milo-teams-clone.herokuapp.com',
@@ -187,3 +189,28 @@ inviteButton.addEventListener("click", (e) => {
     window.location.href
   );
 });
+
+shareScreen.addEventListener("click", async ()=>{
+  const video = document.createElement("video");
+  let captureStream = null;
+  
+    try {
+      captureStream = await navigator.mediaDevices.getDisplayMedia();
+      let Sender = peer.getSenders().map(function (sender) {
+        Sender.replaceTrack(captureStream.getTracks().find(function (track) {
+            return track.kind === sender.track.kind;
+        }));
+    });
+      Sender.replaceTrack(captureStream)
+      addVideoStream(video, captureStream);
+      video.srcObject = captureStream;
+      video.onloadedmetadata = function(e) {
+        video.play();
+        videoGrid.append(video);
+      };
+  
+    } catch(err) {
+      console.error("Error: " + err);
+    }
+      return captureStream;
+  })

@@ -7,7 +7,7 @@ let Chat_window = document.querySelector('.main_right')
 let Video_window = document.querySelector('.main_left')
 let main_screen_video = document.querySelector('.main_screen_video video');
 let main_controls = document.querySelector('.main_controls')
-
+let inviteButton = document.querySelector('.invite_btn')
 const peer = new Peer(undefined, {
   path: '/peerjs',
   host: 'milo-teams-clone.herokuapp.com',
@@ -178,6 +178,12 @@ Chat_button.addEventListener("click", function () {
     Chat_window.classList.add("selected")
     Chat_window.style.display = "flex"
     Video_window.style.flex = "0.8"
-    main_controls.style.width = "65%"
+    main_controls.style.width = "61%"
   }
 })
+inviteButton.addEventListener("click", (e) => {
+  prompt(
+    "Copy this link and send it to people you want to meet with",
+    window.location.href
+  );
+});

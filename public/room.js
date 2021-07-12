@@ -12,7 +12,7 @@ let inviteButton = document.querySelector('.invite_btn')
 const peer = new Peer(undefined, {
   path: '/',
   host: '/',
-  port: process.env.PORT
+  port: '3030'
 });
 
 

@@ -11,8 +11,8 @@ let inviteButton = document.querySelector('.invite_btn')
 
 const peer = new Peer(undefined, {
   path: '/',
-  host: '/',
-  port: '3030'
+  host: 'https://milo-teams-clone.herokuapp.com/',
+  port: '443'
 });
 
 

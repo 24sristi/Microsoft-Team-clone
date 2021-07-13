@@ -16,6 +16,8 @@ The project was built as a part of the Microsoft Engage '21 Program. Contributor
 
 <b>Learnings:</b> Through the Microsoft Engage Mentorship Program 2021,I was able to learn to about new Technologies, get the habit of working using Agile Methodology and deploy a Full stack webapp.
 
+**Try the MS Teams Clone Web App [here](https://milo-teams-clone.herokuapp.com/).**
+
 <img src="https://image.flaticon.com/icons/png/512/1384/1384060.png" alt="youtube-icon" width="50px"> 
 
 [Watch the Demo on YouTube](https://youtu.be/j8OXamMeboU)
@@ -113,6 +115,22 @@ Through the 4 week span of the project, I undertook weekly sprints and made sure
 [(Back to top)](#table-of-contents)
 
 # Challenges Faced
+
+During the development process I faced the following challenges: 
+1. Deciding the type of Web SDK to use.
+2. Resolving the constant bugs and learning Backend Development from scratch as before the project I only knew basic HTML and CSS.
+3. Implementing the Adapt feature. I was able to implement the in-meeting chat but since I had less time I wasn't able to implement the before and after display of chats. 
+
+[(Back to top)](#table-of-contents)
+
+# Future Scope
+
+1. Record the meeting feature can be added
+2. Caption generation
+3. User authentication
+4. Invite link being automatically sent via mail/whatsapp
+5. Raise hand and other reactions
+6. Waiting rooms
 
 
 

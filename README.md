@@ -103,9 +103,9 @@ I have used **HEROKU** as the hosting platform.
 # Usage of Agile Methodology
 
 Through the 4 week span of the project, I undertook weekly sprints and made sure that small features get implemented in an efficient and time bound manner. Having a usable version of the product from the very beginning and seeing it evolve through the days and weeks was a joyful experience.<br>
-<p float ="center">
-  <img src="/public/sprint1.png" width=420/><img src="/public/sprint2.png" width=420/><br>
-  <img src="/public/sprint3.png" width=420/><img src="/public/sprint4.png" width=420/><br>
+<p float ="left">
+  <img src="/public/sprint1.png" width=360/><img src="/public/sprint2.png" width=360/><br>
+  <img src="/public/sprint3.png" width=360/><img src="/public/sprint4.png" width=360/><br>
 </p>
 
 

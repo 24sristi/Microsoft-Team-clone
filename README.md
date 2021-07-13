@@ -20,3 +20,77 @@ The project was built as a part of the Microsoft Engage '21 Program. Contributor
 
 [Watch the Demo on YouTube](https://youtu.be/j8OXamMeboU)
 
+# Table of contents
+
+- [Features of the Application](#features-of-the-application)
+- [Installation](#installation)
+- [Tech Stack Selection](#tech-stack-selection)
+- [Usage of Agile Methodology](#usage-of-agile-methodology)
+- [Challenges Faced](#challenges-faced)
+- [Future Scope](#future-scope)
+
+# Features of the Application
+
+1. Prompt to enter Username
+2. Unique room IDs for every new meeting
+3. Copy invite link using Invite Button
+4. Mandatory Feature (Video Call)
+5. Group video calling 
+6. Participant video calling sidebar 
+7. Click a participant's video to pin it to the large video area
+8. Microphone mute/unmute 
+9. Video on/off 
+10. Functional Leave Meeting Button (redirects to Home Page)
+11. In-meeting chat
+12. Collapse Chat Button
+13. Screen Share Button
+14. Chat with Username
+
+[(Back to top)](#table-of-contents)
+
+# Installation 
+To use this project, follow the steps below:
+
+Initialise git on your terminal.
+
+```bash
+git init
+```
+Clone this repository.
+
+```bash
+git clone https://github.com/24sristi/Microsoft-Team-clone.git
+``` 
+
+Change the directory. 
+
+```bash
+cd Microsoft-Team-clone
+```
+
+Open the repository with your code editor. 
+In case you do not have a code editor, it is recommended you use Visual Studio Code. 
+
+```bash
+code .
+```
+
+Open the terminal in Visual code by pressing Ctrl+J (Windows) and run the following command:
+
+```bash
+nodemon server.js
+```
+
+Go to: http://localhost:3030/ in your Browser to access.
+
+[(Back to top)](#table-of-contents)
+
+# Tech Stack Selection
+
+* <b> Frontend of the Webapp </b> <br>
+I have used **HTML**, **CSS** and **EJS**. I have used Figma to Design the UI. I tried to make sure that the UI of the app was different from Basic Teams to make sure that **MILO** is unique.
+
+* <b> Backend of the Webapp </b> <br>
+I have used **NODE JS** and **EXPRESS SERVER**
+
+

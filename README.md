@@ -87,10 +87,27 @@ Go to: http://localhost:3030/ in your Browser to access.
 
 # Tech Stack Selection
 
-* <b> Frontend of the Webapp </b> <br>
+* <b> FRONTEND </b> <br>
 I have used **HTML**, **CSS** and **EJS**. I have used Figma to Design the UI. I tried to make sure that the UI of the app was different from Basic Teams to make sure that **MILO** is unique.
 
-* <b> Backend of the Webapp </b> <br>
+* <b> BACKEND </b> <br>
 I have used **NODE JS** and **EXPRESS SERVER**
+
+* <b> VIDEO CALL SDK </b> <br>
+I research between various SDKs and finally arived at the decision to use **Web RTC**. <br>
+I have used **SOCKET IO** for real time Communication and **PEER JS** for peer to peer connection in video call.
+
+* <b> HOSTING PLATFORM </b> <br>
+I have used **HEROKU** as the hosting platform.
+
+# Usage of Agile Methodology
+
+Through the 4 week span of the project, I undertook weekly sprints and made sure that small features get implemented in an efficient and time bound manner. Having a usable version of the product from the very beginning and seeing it evolve through the days and weeks was a joyful experience.<br>
+<p float ="center">
+  <img src="/public/sprint1.png" width=420/><img src="/public/sprint2.png" width=420/><br>
+  <img src="/public/sprint3.png" width=420/><img src="/public/sprint4.png" width=420/><br>
+</p>
+
+
 
 
